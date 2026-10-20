@@ -5,22 +5,28 @@ Papa.parse('dataset.csv', {
   skipEmptyLines: true,
 
   complete: function(results) {
-    const labels = [];
-    const values = [];
+    const countrySongs = {};
 
     results.data.forEach(row => {
-      labels.push(row.song_title);
-      values.push(Number(
-        String(row.total_streams_billions).replace(/[^0-9.-]/g, '')
-      ));
+      const country = row.artist_country;
+
+      if (country && country.trim() !== '') {
+        countrySongs[country] = (countrySongs[country] || 0) + 1;
+      }
     });
+
+    const sortedCountries = Object.entries(countrySongs)
+      .sort((a, b) => b[1] - a[1]);
+
+    const labels = sortedCountries.map(item => item[0]);
+    const values = sortedCountries.map(item => item[1]);
 
     new Chart(document.getElementById('revenueChart'), {
       type: 'bar',
       data: {
         labels: labels,
         datasets: [{
-          label: 'Total Spotify Streams (billions)',
+          label: 'Number of Songs',
           data: values,
           backgroundColor: '#4e79a7'
         }]
@@ -29,15 +35,19 @@ Papa.parse('dataset.csv', {
         responsive: true,
         scales: {
           y: {
+            beginAtZero: true,
+            ticks: {
+              precision: 0
+            },
             title: {
               display: true,
-              text: 'Total Streams (billions)'
+              text: 'Number of Songs'
             }
           },
           x: {
             title: {
               display: true,
-              text: 'Song Title'
+              text: 'Artist Country'
             }
           }
         }
@@ -49,4 +59,3 @@ Papa.parse('dataset.csv', {
     console.error('Failed to load dataset:', err);
   }
 });
-
