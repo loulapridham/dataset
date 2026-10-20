@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Top Streamed Spotify Songs of All Time</title>
+  
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="chartscript.js"></script>
+  
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -22,7 +27,13 @@
     </thead>
     <tbody>
     </tbody>
+    
   </table>
+  
+  <h2>Which Countries Have the Most Top 20 Songs?</h2>
+  <canvas id="revenueChart"></canvas>
+  
   <p>Data from <a href='https://www.kaggle.com/datasets'>Kaggle</a></p>
+  
 </body>
 </html>
