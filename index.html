@@ -1,20 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Top Streamed Spotify Songs of All Time</title>
-  
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-  <script src="script.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="chartscript.js"></script>
-  
-  <link rel="stylesheet" href="style.css" />
+  <title>Top Streamed Spotify Songs of All Time</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+  <script src="script.js" defer></script>
+  <script src="chartscript.js" defer></script>
 </head>
+
 <body>
   <h1>Top Streamed Spotify Songs of All Time</h1>
+
   <table id="dataTable">
     <thead>
       <tr>
@@ -22,18 +26,17 @@
         <th>Song Title</th>
         <th>Artist</th>
         <th>Total Streams Billions</th>
-        <th>Artist country</th>
+        <th>Artist Country</th>
       </tr>
     </thead>
     <tbody>
     </tbody>
-    
   </table>
-  
+
   <h2>Which Countries Have the Most Top 20 Songs?</h2>
   <canvas id="revenueChart"></canvas>
-  
-  <p>Data from <a href='https://www.kaggle.com/datasets'>Kaggle</a></p>
-  
+
+  <p>Data from <a href="https://www.kaggle.com/datasets">Kaggle</a></p>
+
 </body>
 </html>
